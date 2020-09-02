@@ -6,7 +6,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{{ asset('css/index.css') }}">
   <link href="https://fonts.googleapis.com/css?family=Caveat" rel=" stylesheet">
+  <script type="text/javascript" src="jquery/jquery.js"></script>
   <title>todoリスト</title>
+  <script>
+    $(function() {
+      $('#deletebutton.button').click(function() {
+        if (!confirm("本当に削除しますか？")) {
+          return false;
+        }
+      });
+    });
+  </script>
 </head>
 
 <body>
@@ -36,18 +46,18 @@
         <td>{{ $todo->content }}</td>
         <td>{{ $todo->status }}</td>
         <td>{{ $todo->due_date }}</td>
-        <td>
-          <form action="{{ action('TablesController@delete', $todo->id) }}" method="post">
+        <td id="deleteform">
+          <form action="/delete/{{ $todo->id }}" method="post">
             {{ csrf_field() }}
-            {{ method_field('delete') }}
-            <button type="submit" class="button">delete</button>
+            <!-- {{ method_field('delete') }} -->
+            <input type="submit" value="delete" class="button" id="deletebutton">
           </form>
         </td>
         <td>
           <form action="[[ action('TablesController@edit',$todo) }}" method="post">
             {{ csrf_field() }}
             {{ method_field('get')}}
-            <button type="submit" class="button">edit</button>
+            <input type="submit" value="edit" class="button">
           </form>
         </td>
       </tr>
