@@ -21,9 +21,28 @@ class TablesController extends Controller
         $todo->save();
         return redirect('/');
     }
-    public function delete(Request $request){
-        $todo = Table::findOrFail($request->id);
+    public function delete($id){
+        $todo = Table::find($id);
         $todo->delete();
+        return redirect('/');
+    }
+    public function edit($id){
+        $edit = Table::findOrFail($id);
+        return view('tables.edit')->with('edit', $edit);
+    }
+    public function
+    complete(Request $request, $id){
+        //レコードを検索
+        $complete = Table::findOrFail($id);
+        //値を代入
+        $complete->content = $request->content;
+        $complete->status = $request->status;
+        $complete->due_date = $request->limit;
+
+        //保存（更新）
+        $complete->save();
+
+        //リダイレクト
         return redirect('/');
     }
 }

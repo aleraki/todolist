@@ -18,5 +18,6 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/','TablesController@index');
 Route::post('/new','TablesController@new');
-Route::post('/delete','TablesController@delete')->name('deletename');
+Route::post('/delete/{id}','TablesController@delete')->name('deletename');
+Route::get('/edit/{id}','TablesController@edit');
 Route::resource('tables', 'TablesControlle');
