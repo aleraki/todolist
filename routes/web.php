@@ -13,12 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/welcome', function () {
+    return view('welcome');
+});
 Route::get('/','TablesController@index');
 Route::post('/new','TablesController@new');
 Route::post('/delete/{id}','TablesController@delete')->name('deletename');
 Route::get('/edit/{id}','TablesController@edit');
 Route::post('/edit/{id}','TablesController@complete');
 Route::resource('tables', 'TablesControlle');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
