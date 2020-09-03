@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,15 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/welcome', function () {
+Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/','TablesController@index');
-Route::post('/new','TablesController@new');
+// Route::get('/','UsersController@login');
+// Route::post('/new','TablesController@new');
+
 Route::post('/delete/{id}','TablesController@delete')->name('deletename');
 Route::get('/edit/{id}','TablesController@edit');
 Route::post('/edit/{id}','TablesController@complete');
 Route::resource('tables', 'TablesControlle');
+// Route::post('/users/login','TablesController@index');
+// Route::post('/users/signup','UsersController@signup');
+// Route::get('/users/new','UsersController@new');
+// Route::get('/logout','UsersController@logout');
 
 Auth::routes();
 

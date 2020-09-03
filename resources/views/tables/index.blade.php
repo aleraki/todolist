@@ -22,14 +22,19 @@
 <body>
   <header>
     <p id="title">todo list</p>
-    <p id="logout">logout</p>
+    <a href="{{ action('UsersController@logout') }}" id="logout">logout</a>
   </header>
   <main>
     <div id="tasktitle">
+      @if(Auth::check())
+      <p>ok</p>
+      @else
+      <p>no</p>
+      @endif
       <h1>new task</h1>
       <form action="{{ url('/new') }}" method="post">
         {{ csrf_field()}}
-        <input type="text" name="new">
+        <input type="text" name="new" class="inputtext">
         <button type="submit" id="newbutton">add</button>
       </form>
     </div>
