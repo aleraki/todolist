@@ -34,15 +34,10 @@ class TablesController extends Controller
     complete(Request $request, $id){
         //レコードを検索
         $complete = Table::findOrFail($id);
-        //値を代入
         $complete->content = $request->content;
         $complete->status = $request->status;
         $complete->due_date = $request->limit;
-
-        //保存（更新）
         $complete->save();
-
-        //リダイレクト
         return redirect('/');
     }
 }

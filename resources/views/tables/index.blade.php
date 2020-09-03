@@ -44,7 +44,13 @@
       @foreach ($todos as $todo)
       <tr>
         <td>{{ $todo->content }}</td>
-        <td>{{ $todo->status }}</td>
+        @if($todo->status == 1)
+        <td class="red">未着手</td>
+        @elseif($todo->status == 2)
+        <td class="green">作業中</td>
+        @elseif($todo->status == 3)
+        <td class="gray">作業済</td>
+        @endif
         <td>{{ $todo->due_date }}</td>
         <td id="deleteform">
           <form action="/delete/{{ $todo->id }}" method="post">
@@ -54,7 +60,7 @@
           </form>
         </td>
         <td>
-          <form action="[[ action('TablesController@edit',$todo) }}" method="post">
+          <form action="/edit/{{ $todo->id }}" method="post">
             {{ csrf_field() }}
             {{ method_field('get')}}
             <input type="submit" value="edit" class="button">

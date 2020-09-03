@@ -20,4 +20,5 @@ Route::get('/','TablesController@index');
 Route::post('/new','TablesController@new');
 Route::post('/delete/{id}','TablesController@delete')->name('deletename');
 Route::get('/edit/{id}','TablesController@edit');
+Route::post('/edit/{id}','TablesController@complete');
 Route::resource('tables', 'TablesControlle');
