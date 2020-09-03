@@ -212,3 +212,24 @@ tr{
     color:rgb(228,214,190);
     background-color:rgb(90,128,203);
 }
+.input{
+    margin:10px;
+}
+.editbutton{
+    width:50%;
+}
+.label{
+    color:rgb(90,128,203);
+}
+label{
+    color:rgb(63, 91, 148);
+}
+.red{
+    color:#942343;
+}
+.green{
+    color:#37a34a;
+}
+.gray{
+    color:#7d7d7d;
+}
