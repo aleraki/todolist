@@ -22,15 +22,18 @@
 <body>
   <header>
     <p id="title">todo list</p>
-    <a href="{{ action('UsersController@logout') }}" id="logout">logout</a>
+    <a href="#" id="logout">logout</a>
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+      @csrf
+    </form>
   </header>
   <main>
+    @if(Auth::check())
+    <p style="color:rgb(90,128,203);">ようこそ{{ Auth::user()->name }}さん</p>
+    @else
+    <p>no</p>
+    @endif
     <div id="tasktitle">
-      @if(Auth::check())
-      <p>ok</p>
-      @else
-      <p>no</p>
-      @endif
       <h1>new task</h1>
       <form action="{{ url('/new') }}" method="post">
         {{ csrf_field()}}
@@ -75,6 +78,13 @@
       @endforeach
     </table>
   </main>
+  <script>
+    document.getElementById('logout').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('logout-form').submit();
+    });
+  </script>
+  @yield('scripts')
 </body>
 
 </html>

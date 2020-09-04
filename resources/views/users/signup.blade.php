@@ -15,7 +15,7 @@
     <p id="logout">login</p>
   </header>
   <main>
-    <form action="/users/signup" method="post">
+    <form action="{{ route('register') }}" method="post">
       {{ csrf_field() }}
       <p class="label">name</p>
       <input type="text" name="name" class="input">

@@ -124,6 +124,8 @@ header{
 #logout{
   float:right;
   font-size:20px;
+  color:rgb(228,214,190);
+  text-decoration:none;
 }
 main{
   width:60%;

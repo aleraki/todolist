@@ -18,6 +18,7 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
+        //ユーザが認証済みの場合、ログイン、新規登録ページにはアクセスしない
         if (Auth::guard($guard)->check()) {
             return redirect('/');
         }

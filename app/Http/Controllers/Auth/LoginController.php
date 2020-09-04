@@ -26,15 +26,20 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    //ログイン成功後のリダイレクト先
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    // public function __construct()
+    // {
+    //     $this->middleware('guest')->except('logout');
+    // }
+    protected function loggedOut(\Illuminate\Http\Request $request)
     {
-        $this->middleware('guest')->except('logout');
+        return redirect('/login');
     }
 }

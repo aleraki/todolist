@@ -72,7 +72,7 @@ body {
   line-height: 1.6;
   color: #212529;
   text-align: left;
-  background-color: #f8fafc;
+  background-color: rgb(228,214,190);
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -2206,6 +2206,7 @@ select.form-control:focus::-ms-value {
   margin-bottom: 0;
   font-size: inherit;
   line-height: 1.6;
+  color:rgb(90,128,203);
 }
 
 .col-form-label-lg {
@@ -2671,15 +2672,15 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #3490dc;
-  border-color: #3490dc;
+  color: rgb(228,214,190);
+  background-color: rgb(90,128,203);
+  border-color: rgb(90,128,203);
 }
 
 .btn-primary:hover {
-  color: #fff;
-  background-color: #227dc7;
-  border-color: #2176bd;
+  color: rgb(90,128,203);
+  background-color: rgb(228,214,190);
+  border-color: rgb(228,214,190);
 }
 
 .btn-primary:focus,
@@ -4834,21 +4835,21 @@ input[type=button].btn-block {
 }
 
 .navbar-light .navbar-brand {
-  color: rgba(0, 0, 0, 0.9);
+  color: rgb(228,214,190);
 }
 
 .navbar-light .navbar-brand:hover,
 .navbar-light .navbar-brand:focus {
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(228,214,190,0.7);
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgb(228,214,190);
 }
 
 .navbar-light .navbar-nav .nav-link:hover,
 .navbar-light .navbar-nav .nav-link:focus {
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(228,214,190,0.7);
 }
 
 .navbar-light .navbar-nav .nav-link.disabled {
@@ -5004,8 +5005,9 @@ input[type=button].btn-block {
 .card-header {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: rgb(90,128,203);
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  color:rgb(228,214,190);
 }
 
 .card-header:first-child {
@@ -7044,7 +7046,7 @@ button.bg-dark:focus {
 }
 
 .bg-white {
-  background-color: #fff !important;
+  background-color: rgb(90,128,203) !important;
 }
 
 .bg-transparent {
@@ -10903,4 +10905,3 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
-

@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Table;
 
 class TablesController extends Controller
 {
     public function index(){
-        $todos = Table::all();
+        $query = Table::query();
+        $id = Auth::user()->id;
+        $query->where("userid",$id);
+        $todos = $query->get();
         //indexビューを呼び出して、$todosを渡す
         return view('tables.index',['todos'=>$todos]);
     }
@@ -18,7 +22,10 @@ class TablesController extends Controller
         $todo->content = $request->new;
         $todo->status = 1;
         $todo->due_date = date('Y-m-d');
+        $id = Auth::user()->id;
+        $todo->userid = $id;
         $todo->save();
+        // Auth::user()->save($todo);
         return redirect('/');
     }
     public function delete($id){
